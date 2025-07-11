@@ -13,7 +13,10 @@ export async function getAllBoxes(req, res) {
     const [result] = await connection.execute(sql);
     return res.json({
       status: "success",
-      list: result,
+      list: result.map((b) => ({
+        ...b,
+        thumbnail: b.thumbnail ? `http://localhost:5445/img/thumbnails/${b.thumbnail}` : "",
+      })),
     });
   } catch (error) {
     console.log(error);

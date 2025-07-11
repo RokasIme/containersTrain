@@ -22,9 +22,9 @@ import { PageNotFullConatiners } from "./pages/admin/containers/PageNotFullconat
 import { PageNewContainer } from "./pages/admin/containers/PageNewContainer";
 
 import { PageAllboxes } from "./pages/admin/boxes/PageAllBoxes";
-import { PageNewBoxes, PageNewMovie } from "./pages/admin/boxes/PageNewBox";
+import { PageNewBoxes } from "./pages/admin/boxes/PageNewBox";
 
-import { PageEditMovie } from "./pages/admin/boxes/PageEditMovie";
+import { PageEditBox } from "./pages/admin/boxes/PageEditBox";
 import { ContainersContextWrapper } from "./context/containers/ContainersContextWrapper";
 import { BoxesContextWrapper } from "./context/boxes/BoxesContextWrapper";
 
@@ -57,8 +57,8 @@ export function App() {
 
                 <Route path="/admin/boxes" element={<PageAllboxes />} />
                 <Route path="/admin/boxes/new" element={<PageNewBoxes />} />
-                <Route path="/admin/boxes/:id" element={<PageEditMovie />} />
-                <Route path="/admin/boxes/:id/edit" element={<PageEditMovie />} />
+                <Route path="/admin/boxes/:id" element={<PageEditBox />} />
+                <Route path="/admin/boxes/:id/edit" element={<PageEditBox />} />
               </Route>
               <Route Component={PublicLayout}>
                 <Route path="*" element={<PageNotFound />} />

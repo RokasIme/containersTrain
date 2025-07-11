@@ -1,7 +1,5 @@
 import express from "express";
 import { getLogout } from "../api/admin/getLogout.js";
-import { moviesPost } from "../api/admin/moviesPost.js";
-import { moviesPut } from "../api/admin/moviesPut.js";
 import { movieBySlugGet } from "../api/admin/movieBySlugGet.js";
 import { moviesByCategoryGet } from "../api/admin/moviesByCategoryGet.js";
 import { containersDelete } from "../api/admin/containersDelete.js";
@@ -10,13 +8,15 @@ import { apiUpload } from "../api/admin/apiUpload.js";
 import { uploadMovieThumbnailImage } from "../middleware/uploadThumbnail.js";
 import { containersPost } from "../api/admin/containersPost.js";
 import { boxesDelete } from "../api/admin/boxesDelete.js";
+import { boxesPost } from "../api/admin/boxesPost.js";
+import { boxesPut } from "../api/admin/boxesPut.js";
 
 export const adminApiRouter = express.Router();
 
 adminApiRouter.get("/logout", getLogout);
 
-adminApiRouter.post("/boxes", moviesPost);
-adminApiRouter.put("/boxes/:id", moviesPut);
+adminApiRouter.post("/boxes", boxesPost);
+adminApiRouter.put("/boxes/:id", boxesPut);
 adminApiRouter.delete("/boxes/:id", boxesDelete);
 
 adminApiRouter.get("/movies/:slug", movieBySlugGet);

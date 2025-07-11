@@ -1,4 +1,4 @@
-import { BoxNewForm } from "../../../components/form/MovieNew";
+import { BoxNewForm } from "../../../components/form/BoxNew";
 import { AdminTitle } from "../../../components/page-title/AdminTitle";
 
 export function PageNewBoxes() {
