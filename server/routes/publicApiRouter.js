@@ -4,7 +4,7 @@ import { postLogin } from "../api/public/postLogin.js";
 import { getLogin } from "../api/public/getLogin.js";
 import { getAllContainers } from "../api/public/getAllContainers.js";
 
-import { getAllMovies } from "../api/public/getAllMovies.js";
+import { getAllBoxes } from "../api/public/getAllBoxes.js";
 
 export const publicApiRouter = express.Router();
 
@@ -14,7 +14,7 @@ publicApiRouter.get("/login", getLogin);
 
 publicApiRouter.get("/containers", getAllContainers);
 
-publicApiRouter.get("/movies", getAllMovies);
+publicApiRouter.get("/boxes", getAllBoxes);
 
 publicApiRouter.all("*error", (req, res) => {
   return res.status(404).json({

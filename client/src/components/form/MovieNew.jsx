@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import defaultImg from "../../assets/default.webp";
-// import { CategoriesContext } from "../../context/categories/CategoriesContext";
-// import { MoviesContext } from "../../context/movies/MoviesContext";
+import { BoxesContext } from "../../context/boxes/boxesContext";
+import { ContainersContext } from "../../context/containers/ContainersContext";
 
-export function MovieNewForm() {
+export function BoxNewForm() {
   const navigate = useNavigate();
 
-  // const { adminCategories } = useContext(CategoriesContext);
-  // const { adminRefreshMovies } = useContext(MoviesContext);
+  const { boxes, adminRefreshBoxes } = useContext(BoxesContext);
+  const { containers } = useContext(ContainersContext);
 
   const [img, setImg] = useState("");
   const [name, setName] = useState("");

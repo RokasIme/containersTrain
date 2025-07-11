@@ -1,7 +1,7 @@
 import { connection } from "../../db.js";
 import { IsValid } from "../../lib/IsValid.js";
 
-export async function categoriesDelete(req, res) {
+export async function containersDelete(req, res) {
   const [err, msg] = IsValid.requiredFields(req.params, [{ field: "id", validation: IsValid.idAsString }]);
 
   if (err) {
@@ -12,17 +12,17 @@ export async function categoriesDelete(req, res) {
   }
 
   try {
-    const sql = `DELETE FROM categories WHERE id = ?;`;
+    const sql = `DELETE FROM containers WHERE id = ?;`;
     const [result] = await connection.execute(sql, [+req.params.id]);
     if (result.affectedRows === 1) {
       return res.json({
         status: "success",
-        msg: "Kategorija istrinta sekmingai",
+        msg: "istrinta sekmingai",
       });
     } else {
       return res.json({
         status: "success",
-        msg: "Kategorija nebuvo istrinta",
+        msg: "nebuvo istrinta",
       });
     }
   } catch (error) {

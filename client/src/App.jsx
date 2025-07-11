@@ -8,10 +8,7 @@ import { PageHome } from "./pages/public/home/PageHome";
 import { PageNotFound } from "./pages/PageNotFound";
 
 import { PageMovies } from "./pages/public/movies/PageMovies";
-import { PageMovieInner } from "./pages/public/movies/PageMovieInner";
-
 import { PageCategories } from "./pages/public/categories/PageCategories";
-import { PageCategoryInner } from "./pages/public/categories/PageCategoryInner";
 
 import { PageLogin } from "./pages/public/auth/PageLogin";
 import { PageRegister } from "./pages/public/auth/PageRegister";
@@ -24,53 +21,51 @@ import { PageFullConatiners } from "./pages/admin/containers/PageFullContainers"
 import { PageNotFullConatiners } from "./pages/admin/containers/PageNotFullconatiners";
 import { PageNewContainer } from "./pages/admin/containers/PageNewContainer";
 
-import { PageAllMovies } from "./pages/admin/movies/PageAllMovies";
-import { PageNewMovie } from "./pages/admin/movies/PageNewMovie";
-import { PagePublishedMovies } from "./pages/admin/movies/PagePublishedMovies";
-import { PageDraftMovies } from "./pages/admin/movies/PageDraftMovies";
-import { PageEditMovie } from "./pages/admin/movies/PageEditMovie";
+import { PageAllboxes } from "./pages/admin/boxes/PageAllBoxes";
+import { PageNewBoxes, PageNewMovie } from "./pages/admin/boxes/PageNewBox";
+
+import { PageEditMovie } from "./pages/admin/boxes/PageEditMovie";
 import { ContainersContextWrapper } from "./context/containers/ContainersContextWrapper";
+import { BoxesContextWrapper } from "./context/boxes/BoxesContextWrapper";
 
 export function App() {
   return (
     <UserContextWrapper>
       <ContainersContextWrapper>
-        {/* <MoviesContextWrapper> */}
-        <BrowserRouter>
-          <Routes>
-            <Route Component={PublicLayout}>
-              <Route index path="/" element={<PageHome />} />
-              <Route path="/containers" element={<PageMovies />} />
-              {/* <Route path="/movies/:movie" element={<PageMovieInner />} /> */}
-              <Route path="/categories" element={<PageCategories />} />
-              {/* <Route path="/categories/:category" element={<PageCategoryInner />} /> */}
+        <BoxesContextWrapper>
+          <BrowserRouter>
+            <Routes>
+              <Route Component={PublicLayout}>
+                <Route index path="/" element={<PageHome />} />
+                <Route path="/containers" element={<PageMovies />} />
+                {/* <Route path="/movies/:movie" element={<PageMovieInner />} /> */}
+                <Route path="/categories" element={<PageCategories />} />
+                {/* <Route path="/categories/:category" element={<PageCategoryInner />} /> */}
 
-              <Route path="/register" element={<PageRegister />} />
-              <Route path="/login" element={<PageLogin />} />
-            </Route>
-            <Route Component={PrivateLayout}>
-              <Route path="/admin" element={<PageDashboard />} />
+                <Route path="/register" element={<PageRegister />} />
+                <Route path="/login" element={<PageLogin />} />
+              </Route>
+              <Route Component={PrivateLayout}>
+                <Route path="/admin" element={<PageDashboard />} />
 
-              <Route path="/admin/containers" element={<PageAllContainers />} />
-              <Route path="/admin/containers/new" element={<PageNewContainer />} />
-              <Route path="/admin/containers/full" element={<PageFullConatiners />} />
-              <Route path="/admin/containers/notfull" element={<PageNotFullConatiners />} />
-              <Route path="/admin/conatiners/:id" element={<PageEditContainer />} />
-              <Route path="/admin/containers/:id/edit" element={<PageEditContainer />} />
+                <Route path="/admin/containers" element={<PageAllContainers />} />
+                <Route path="/admin/containers/new" element={<PageNewContainer />} />
+                <Route path="/admin/containers/full" element={<PageFullConatiners />} />
+                <Route path="/admin/containers/notfull" element={<PageNotFullConatiners />} />
+                <Route path="/admin/conatiners/:id" element={<PageEditContainer />} />
+                <Route path="/admin/containers/:id/edit" element={<PageEditContainer />} />
 
-              <Route path="/admin/movies" element={<PageAllMovies />} />
-              <Route path="/admin/movies/new" element={<PageNewMovie />} />
-              <Route path="/admin/movies/published" element={<PagePublishedMovies />} />
-              <Route path="/admin/movies/draft" element={<PageDraftMovies />} />
-              <Route path="/admin/movies/:movie" element={<PageEditMovie />} />
-              <Route path="/admin/movies/:movie/edit" element={<PageEditMovie />} />
-            </Route>
-            <Route Component={PublicLayout}>
-              <Route path="*" element={<PageNotFound />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-        {/* </MoviesContextWrapper> */}
+                <Route path="/admin/boxes" element={<PageAllboxes />} />
+                <Route path="/admin/boxes/new" element={<PageNewBoxes />} />
+                <Route path="/admin/boxes/:id" element={<PageEditMovie />} />
+                <Route path="/admin/boxes/:id/edit" element={<PageEditMovie />} />
+              </Route>
+              <Route Component={PublicLayout}>
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </BoxesContextWrapper>
       </ContainersContextWrapper>
     </UserContextWrapper>
   );

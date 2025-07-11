@@ -48,10 +48,20 @@ export function ContainerEditForm() {
     <form onSubmit={handleFormSubmit} className="needs-validation col-12 col-md-10 col-lg-8 col-xl-6">
       <div className="row g-3">
         <div className="col-sm-12">
-          <label htmlFor="size" className="form-label">
-            select size
+          <label htmlFor="id" className="form-label">
+            Container ID
           </label>
-          <select
+          <div value={id} type="text" className="form-control" id="id" placeholder="" required>
+            {id}
+          </div>
+          <div className="invalid-feedback">Valid first name is required.</div>
+        </div>
+
+        <div className="col-sm-12">
+          <label htmlFor="size" className="form-label">
+            size
+          </label>
+          <div
             onChange={(e) => setSize(e.target.value)}
             value={size}
             type="text"
@@ -60,10 +70,26 @@ export function ContainerEditForm() {
             placeholder=""
             required
           >
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-          </select>
+            {size}
+          </div>
+          <div className="invalid-feedback">Valid first name is required.</div>
+        </div>
+
+        <div className="col-sm-12">
+          <label htmlFor="boxes" className="form-label">
+            Boxes in the container
+          </label>
+          <div
+            // onChange={(e) => setBoxes(e.target.value)}
+            // value={boxes}
+            type="text"
+            className="form-control"
+            id="boxes"
+            placeholder=""
+            required
+          >
+            {}
+          </div>
           <div className="invalid-feedback">Valid first name is required.</div>
         </div>
       </div>

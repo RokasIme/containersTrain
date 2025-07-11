@@ -59,12 +59,12 @@ export function Sidebar() {
           </h6>
           <ul className="nav nav-pills flex-column">
             <li className="nav-item">
-              <Link to="/admin/movies/new" className="nav-link d-flex align-items-center gap-2">
+              <Link to="/admin/boxes/new" className="nav-link d-flex align-items-center gap-2">
                 Add new box
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/admin/movies" className="nav-link d-flex align-items-center gap-2">
+              <Link to="/admin/boxes" className="nav-link d-flex align-items-center gap-2">
                 All boxes
               </Link>
             </li>
