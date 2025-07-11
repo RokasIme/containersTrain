@@ -30,52 +30,42 @@ export function Sidebar() {
             </li>
           </ul>
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>Categories</span>
+            <span>Containers</span>
           </h6>
           <ul className="nav nav-pills flex-column">
             <li className="nav-item">
-              <Link to="/admin/categories/new" className="nav-link d-flex align-items-center gap-2">
+              <Link to="/admin/containers/new" className="nav-link d-flex align-items-center gap-2">
                 Add new
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/admin/categories" className="nav-link d-flex align-items-center gap-2">
-                All categories
+              <Link to="/admin/containers" className="nav-link d-flex align-items-center gap-2">
+                All containers
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/admin/categories/published" className="nav-link d-flex align-items-center gap-2">
-                Published categories
+              <Link to="/admin/containers/full" className="nav-link d-flex align-items-center gap-2">
+                Full containers
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/admin/categories/draft" className="nav-link d-flex align-items-center gap-2">
-                Draft categories
+              <Link to="/admin/containers/notfull" className="nav-link d-flex align-items-center gap-2">
+                Not full containers
               </Link>
             </li>
           </ul>
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>Movies</span>
+            <span>Boxes</span>
           </h6>
           <ul className="nav nav-pills flex-column">
             <li className="nav-item">
               <Link to="/admin/movies/new" className="nav-link d-flex align-items-center gap-2">
-                Add new
+                Add new box
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/admin/movies" className="nav-link d-flex align-items-center gap-2">
-                All movies
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/admin/movies/published" className="nav-link d-flex align-items-center gap-2">
-                Published movies
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/admin/movies/draft" className="nav-link d-flex align-items-center gap-2">
-                Draft movies
+                All boxes
               </Link>
             </li>
           </ul>
