@@ -19,10 +19,10 @@ import { PageRegister } from "./pages/public/auth/PageRegister";
 import { PageDashboard } from "./pages/admin/PageDashboard";
 
 import { PageAllContainers } from "./pages/admin/containers/PageAllContainers";
-import { PageEditCategory } from "./pages/admin/containers/PageEditCategory";
+import { PageEditContainer } from "./pages/admin/containers/PageEditContainer";
 import { PageFullConatiners } from "./pages/admin/containers/PageFullContainers";
 import { PageNotFullConatiners } from "./pages/admin/containers/PageNotFullconatiners";
-import { PageNewCategory } from "./pages/admin/containers/PageNewCategory";
+import { PageNewContainer } from "./pages/admin/containers/PageNewContainer";
 
 import { PageAllMovies } from "./pages/admin/movies/PageAllMovies";
 import { PageNewMovie } from "./pages/admin/movies/PageNewMovie";
@@ -52,11 +52,11 @@ export function App() {
               <Route path="/admin" element={<PageDashboard />} />
 
               <Route path="/admin/containers" element={<PageAllContainers />} />
-              <Route path="/admin/containers/new" element={<PageNewCategory />} />
+              <Route path="/admin/containers/new" element={<PageNewContainer />} />
               <Route path="/admin/containers/full" element={<PageFullConatiners />} />
               <Route path="/admin/containers/notfull" element={<PageNotFullConatiners />} />
-              <Route path="/admin/conatiners/:id" element={<PageEditCategory />} />
-              <Route path="/admin/containers/:id/edit" element={<PageEditCategory />} />
+              <Route path="/admin/conatiners/:id" element={<PageEditContainer />} />
+              <Route path="/admin/containers/:id/edit" element={<PageEditContainer />} />
 
               <Route path="/admin/movies" element={<PageAllMovies />} />
               <Route path="/admin/movies/new" element={<PageNewMovie />} />
