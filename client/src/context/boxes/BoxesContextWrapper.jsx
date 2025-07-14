@@ -1,19 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { initialBoxesContext } from "./initialBoxesContext";
 
-import { UserContext } from "../user/UserContext";
 import { BoxesContext } from "./boxesContext";
 
 export function BoxesContextWrapper(props) {
   const [boxes, setBoxes] = useState(initialBoxesContext.boxes);
 
-  const { isLoggedIn } = useContext(UserContext);
-
   useEffect(() => {
-    if (isLoggedIn) {
-      fetchBoxes();
-    }
-  }, [isLoggedIn]);
+    fetchBoxes();
+  }, []);
 
   function fetchBoxes() {
     fetch("http://localhost:5445/api/public/boxes", {

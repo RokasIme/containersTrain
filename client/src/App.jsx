@@ -7,9 +7,6 @@ import { PrivateLayout } from "./layout/PrivateLayout";
 import { PageHome } from "./pages/public/home/PageHome";
 import { PageNotFound } from "./pages/PageNotFound";
 
-import { PageMovies } from "./pages/public/movies/PageMovies";
-import { PageCategories } from "./pages/public/categories/PageCategories";
-
 import { PageLogin } from "./pages/public/auth/PageLogin";
 import { PageRegister } from "./pages/public/auth/PageRegister";
 
@@ -27,6 +24,8 @@ import { PageNewBoxes } from "./pages/admin/boxes/PageNewBox";
 import { PageEditBox } from "./pages/admin/boxes/PageEditBox";
 import { ContainersContextWrapper } from "./context/containers/ContainersContextWrapper";
 import { BoxesContextWrapper } from "./context/boxes/BoxesContextWrapper";
+import { PageContainers } from "./pages/public/containers/PageContainers";
+import { PageContainersInner } from "./pages/public/containers/PageContainersInner";
 
 export function App() {
   return (
@@ -37,9 +36,9 @@ export function App() {
             <Routes>
               <Route Component={PublicLayout}>
                 <Route index path="/" element={<PageHome />} />
-                <Route path="/containers" element={<PageMovies />} />
-                {/* <Route path="/movies/:movie" element={<PageMovieInner />} /> */}
-                <Route path="/categories" element={<PageCategories />} />
+                <Route path="/containers" element={<PageContainers />} />
+                <Route path="/containers/:id" element={<PageContainersInner />} />
+                {/* <Route path="/categories" element={<PageCategories />} /> */}
                 {/* <Route path="/categories/:category" element={<PageCategoryInner />} /> */}
 
                 <Route path="/register" element={<PageRegister />} />
