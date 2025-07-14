@@ -7,6 +7,7 @@ import { ContainersContext } from "../../context/containers/ContainersContext";
 export function BoxNewForm() {
   const navigate = useNavigate();
 
+  const { adminRefreshContainer } = useContext(ContainersContext);
   const { adminRefreshBoxes } = useContext(BoxesContext);
   const { containers } = useContext(ContainersContext);
   const notFullContainers = containers.filter(
@@ -70,6 +71,7 @@ export function BoxNewForm() {
       .then((data) => {
         if (data.status === "success") {
           adminRefreshBoxes();
+          adminRefreshContainer();
           navigate("/admin/boxes");
         }
       })

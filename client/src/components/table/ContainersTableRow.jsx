@@ -3,22 +3,43 @@ import { BadgeDanger } from "../badge/BadgeDanger";
 import { BadgeSuccess } from "../badge/BadgeSuccess";
 import { useContext } from "react";
 import { ContainersContext } from "../../context/containers/ContainersContext";
+import { BoxesContext } from "../../context/boxes/boxesContext";
 
 export function ContainersTableRow({ container }) {
   const { adminDeleteContainer } = useContext(ContainersContext);
+  const { boxes, adminDeleteBox } = useContext(BoxesContext);
 
-  function handleDeleteClick() {
-    fetch("http://localhost:5445/api/admin/containers/" + container.id, {
-      method: "DELETE",
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          adminDeleteContainer(container.id);
-        }
-      })
-      .catch(console.error);
+  const boxesInContainer = boxes.filter((b) => b.container_id === container.id);
+
+  async function handleDeleteClick() {
+    try {
+      // Pirma ištrinam visus boxes
+      await Promise.all(
+        boxesInContainer.map((b) =>
+          fetch("http://localhost:5445/api/admin/boxes/" + b.id, {
+            method: "DELETE",
+            credentials: "include",
+          }).then((res) => res.json())
+        )
+      );
+
+      // Tada ištrinam container
+      const res = await fetch("http://localhost:5445/api/admin/containers/" + container.id, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      const data = await res.json();
+
+      if (data.status === "success") {
+        adminDeleteContainer(container.id);
+      }
+
+      // Galiausiai pašalinam boxus iš state
+      boxesInContainer.forEach((b) => adminDeleteBox(b.id));
+    } catch (error) {
+      console.error("Delete error:", error);
+    }
   }
 
   return (

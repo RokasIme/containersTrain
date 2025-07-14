@@ -4,7 +4,7 @@ import { ContainersContext } from "../../context/containers/ContainersContext";
 
 export function ContainerNewForm() {
   const { adminRefreshContainer } = useContext(ContainersContext);
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState("S");
 
   const navigate = useNavigate();
 
