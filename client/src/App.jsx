@@ -38,8 +38,6 @@ export function App() {
                 <Route index path="/" element={<PageHome />} />
                 <Route path="/containers" element={<PageContainers />} />
                 <Route path="/containers/:id" element={<PageContainersInner />} />
-                {/* <Route path="/categories" element={<PageCategories />} /> */}
-                {/* <Route path="/categories/:category" element={<PageCategoryInner />} /> */}
 
                 <Route path="/register" element={<PageRegister />} />
                 <Route path="/login" element={<PageLogin />} />

@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
   },
 });
 
-export const uploadMovieThumbnailImage = multer({
+export const uploadThumbnailImage = multer({
   storage: storage,
   limits: {
     fileSize: 3000000,

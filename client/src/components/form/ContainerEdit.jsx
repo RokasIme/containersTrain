@@ -14,20 +14,13 @@ export function ContainerEditForm() {
   const boxesInContainer = boxes.filter((b) => b.container_id === +id);
 
   const [size, setSize] = useState("");
-  const [initialSize, setInitialSize] = useState("");
 
   useEffect(() => {
     const containerData = id ? containers.find((c) => c.id === +id) : null;
     if (containerData) {
       setSize(containerData.size);
-      setInitialSize(containerData.size);
     }
   }, [containers, id]);
-
-  function handleResetClick(e) {
-    e.preventDefault();
-    setSize(initialSize);
-  }
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -140,9 +133,6 @@ export function ContainerEditForm() {
       <div className="d-flex" style={{ gap: "1rem" }}>
         <button className="btn btn-success btn-lg" type="submit">
           Update
-        </button>
-        <button onClick={handleResetClick} className="btn btn-secondary btn-lg ms-auto" type="reset">
-          Reset
         </button>
       </div>
     </form>
